@@ -14,31 +14,31 @@ df = pd.read_excel("https://github.com/ltdaovn/dataset/blob/master/student.xlsx?
 print(df)
 
 # Xóa các hàng có bất kỳ giá trị nào bị rỗng
-new_df = df.dropna(how='any')
+new_df = df.dropna(axis=0, how='any', inplace=False)
 print(new_df)
 
 # Xóa các hàng có tất cả giá trị đều bị rỗng
-new_df = df.dropna()
+new_df = df.dropna(axis=0, inplace=False)
 print(new_df)
 
 # Xóa các cột có bất kỳ giá trị nào bị rỗng
-new_df = df.dropna()
+new_df = df.dropna(axis=1, how='any', inplace=False)
 print(new_df)
 
 # Xóa các cột có tất cả giá trị đều bị rỗng
-new_df = df.dropna()
+new_df = df.dropna(axis=1, inplace=False)
 print(new_df)
 
 # Chỉ giữ lại các hàng có từ 2 dữ liệu hợp lệ trở lên
-new_df = df.dropna()
+new_df = df.dropna(thresh=2)
 print(new_df)
 
 # Chỉ giữ lại các hàng có từ 3 dữ liệu hợp lệ trở lên
-new_df = df.dropna()
+new_df = df.dropna(thresh=3)
 print(new_df)
 
 # Chỉ giữ lại các cột có từ 11 dữ liệu hợp lệ
-new_df = df.dropna()
+new_df = df.dropna(axis=1, thresh=11)
 print(new_df)
 
 # Chỉ giữ lại các hàng có 70% dữ liệu hợp lệ trở lên
@@ -46,5 +46,5 @@ new_df = df.dropna(how='any',axis=0,thresh=df.shape[1]*0.7)
 print(new_df)
 
 #Chỉ giữ lại các cột có 80% dữ liệu hợp lệ trở lên
-new_df = df.dropna()
+new_df = df.dropna(how='any',axis=1,thresh=df.shape[1]*0.8)
 print(new_df)
